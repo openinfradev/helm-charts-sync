@@ -1,0 +1,33 @@
+lma:
+  - name: kube-prometheus-stack
+    sync: false
+    source: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+  - name: eck-operator
+    sync: false
+    source: https://github.com/elastic/cloud-on-k8s/tree/master/deploy/eck-operator
+  - name: kube-state-metrics
+    sync: false
+    source: https://github.com/bitnami/charts/tree/master/bitnami/kube-state-metrics
+  - name: prometheus-pushgateway
+    sync: false
+    source: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-pushgateway
+  - name: grafana
+    sync: false
+    source: https://github.com/grafana/helm-charts/tree/main/charts/grafana
+  - name: prometheus-adapter
+    sync: false
+    source: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-adapter
+  - name: thanos
+    sync: false
+    source: https://github.com/bitnami/charts/tree/master/bitnami/thanos
+---
+service-mesh:
+  - name: jaeger-operator
+    sync: false
+    source: https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger-operator
+  - name: kiali-operator
+    sync: false
+    source: https://github.com/kiali/helm-charts/tree/master/kiali-operator
+  - name: istio-operator
+    source: https://github.com/istio/istio/tree/master/manifests/charts/istio-operator
+    sync: true
