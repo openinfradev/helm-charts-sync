@@ -33,3 +33,7 @@
   sync: true
   source: https://github.com/istio/istio
   path: manifests/charts/istio-operator
+- name: rook-ceph
+  sync: true
+  source: https://github.com/rook/rook
+  path: cluster/charts/rook-ceph
