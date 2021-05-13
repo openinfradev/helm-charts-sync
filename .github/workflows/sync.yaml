@@ -34,9 +34,9 @@ jobs:
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.HANU_CI }}
-          charts_url:  https://openinfradev.github.io/hanu-helm-repo
+          charts_url:  https://openinfradev.github.io/helm-repo
           owner: openinfradev
-          repository: hanu-helm-repo
+          repository: helm-repo
           branch: main
           linting: off
           commit_username: hanu-jenkins
