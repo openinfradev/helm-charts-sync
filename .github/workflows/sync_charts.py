@@ -4,8 +4,6 @@ from git import (Repo, RemoteProgress)
 import tarfile
 import shutil
 
-helm_repo = "https://openinfradev.github.com/hanu-helm-repo"
-
 class Chart:
   def __init__(self, name, version, source_dir):
     self.name = name
@@ -21,8 +19,12 @@ class Chart:
       tar.add(self.source_dir, arcname=os.path.basename(self.source_dir))
       print(target_file + " is created!")
 
-def get_chart(source, path, target_dir):
-  Repo.clone_from(source, target_dir)
+def get_chart(source, path, branch, target_dir):
+  if branch: 
+    Repo.clone_from(source, target_dir, branch=branch)
+  else:
+    Repo.clone_from(source, target_dir)
+
   chart_dir = target_dir + "/" + path
   chart_file = chart_dir + "/Chart.yaml"
   stream = open(chart_file, 'r')
@@ -36,12 +38,15 @@ def sync():
   except FileExistsError:
     pass
   for chart in yaml.safe_load(stream):
+    branch = None
     if chart['sync'] == False:
       continue
-
+    if 'branch' in chart:
+      branch = chart['branch']
+    
     temp_path = "tmp/" + chart['name']
     print('Trying to sync ' + chart['name'])
-    chart = get_chart(chart['source'], chart['path'], temp_path)
+    chart = get_chart(chart['source'], chart['path'], branch, temp_path)
     shutil.move(chart.source_dir, "charts/" + chart.name)
 
 if __name__ == "__main__":

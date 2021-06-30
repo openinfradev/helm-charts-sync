@@ -31,6 +31,7 @@
   path: kiali-operator
 - name: istio-operator
   sync: true
+  branch: release-1.10.2-patch
   source: https://github.com/istio/istio
   path: manifests/charts/istio-operator
 - name: rook-ceph
