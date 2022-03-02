@@ -22,11 +22,13 @@
   source: https://github.com/bitnami/charts
   path: bitnami/thanos
 - name: jaeger-operator
-  sync: false
+  sync: true
+  branch: jaeger-operator-2.23.0
   source: https://github.com/jaegertracing/helm-charts
   path: charts/jaeger-operator
 - name: kiali-operator
-  sync: false
+  sync: true
+  branch: v1.38
   source: https://github.com/kiali/helm-charts
   path: kiali-operator
 - name: istio-operator
@@ -35,6 +37,6 @@
   source: https://github.com/istio/istio
   path: manifests/charts/istio-operator
 - name: rook-ceph
-  sync: true
+  sync: false
   source: https://github.com/rook/rook
   path: cluster/charts/rook-ceph

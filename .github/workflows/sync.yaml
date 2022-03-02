@@ -3,9 +3,9 @@ name: Sync and Publish Helm Charts
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - '*'
   schedule:
     - cron: "2 2 * * *"
 
@@ -33,7 +33,7 @@ jobs:
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
         with:
-          token: ${{ secrets.HANU_CI }}
+          token: ${{ secrets.BOT_GITHUB_TOKEN }}
           charts_url:  https://openinfradev.github.io/helm-repo
           owner: openinfradev
           repository: helm-repo
