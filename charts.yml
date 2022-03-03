@@ -39,4 +39,4 @@
 - name: rook-ceph
   sync: false
   source: https://github.com/rook/rook
-  path: cluster/charts/rook-ceph
+  path: deploy/charts/rook-ceph
