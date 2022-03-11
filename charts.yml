@@ -22,17 +22,17 @@
   source: https://github.com/bitnami/charts
   path: bitnami/thanos
 - name: jaeger-operator
-  sync: true
-  branch: jaeger-operator-2.23.0
+  sync: false
+  branch: jaeger-operator-2.27.1
   source: https://github.com/jaegertracing/helm-charts
   path: charts/jaeger-operator
 - name: kiali-operator
-  sync: true
-  branch: v1.38
+  sync: false
+  branch: v1.45.1
   source: https://github.com/kiali/helm-charts
   path: kiali-operator
 - name: istio-operator
-  sync: true
+  sync: false
   branch: release-1.11.7-patch
   source: https://github.com/istio/istio
   path: manifests/charts/istio-operator
@@ -40,3 +40,23 @@
   sync: false
   source: https://github.com/rook/rook
   path: cluster/charts/rook-ceph
+- name: istio-base
+  sync: true
+  branch: tag_1.13.1
+  source: https://github.com/seungkyua/istio-istio
+  path: manifests/charts/base
+- name: istiod
+  sync: true
+  branch: tag_1.13.1
+  source: https://github.com/seungkyua/istio-istio
+  path: manifests/charts/istio-control/istio-discovery
+- name: istio-ingress-gateway
+  sync: true
+  branch: tag_1.13.1
+  source: https://github.com/seungkyua/istio-istio
+  path: manifests/charts/gateway
+- name: istio-egress-gateway
+  sync: true
+  branch: tag_1.13.1
+  source: https://github.com/seungkyua/istio-istio
+  path: manifests/charts/gateways/istio-egress
